@@ -1,0 +1,17 @@
+aws_access_key                = ""
+aws_master_instance_type      = "t3.xlarge"
+aws_region                    = "eu-north-1"
+aws_secret_key                = ""
+aws_worker_instance_type      = "t3.xlarge"
+neuvector_admin_password      = ""
+neuvector_chart_version       = "100.0.0+up2.2.0"
+neuvector_controller_replicas = 1
+neuvector_scanners_replicas   = 1
+prefix                        = "nv-demo"
+rancher_access_key            = ""
+rancher_api_url               = "https://demo-hosted.rancher.cloud"
+rancher_secret_key            = ""
+rke2_cluster_token            = ""
+rke2_master_node_count        = 1
+rke2_version                  = "v1.22.10-rc2+rke2r1"
+rke2_worker_node_count        = 0
