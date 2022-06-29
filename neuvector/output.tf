@@ -15,3 +15,10 @@ output "worker_node_ip" {
      instance.tags.Name => instance.public_ip
   }
 }
+
+output "neuvector_url" {
+  value = {
+    for instance in aws_instance.rke2_master_instance:
+    instance.tags.Name => "https://${instance.public_ip}:${ssh_resource.nv-svc-nodeport.result}"
+  }
+}

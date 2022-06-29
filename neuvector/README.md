@@ -58,6 +58,7 @@ No modules.
 | [ssh_resource.install_rke2_first_master](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.install_rke2_master](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.install_rke2_worker](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
+| [ssh_resource.nv-svc-nodeport](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.register_rke](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.rke2_first_master_config](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.rke2_master_config](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
@@ -94,5 +95,6 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_master_node_ip"></a> [master\_node\_ip](#output\_master\_node\_ip) | n/a |
+| <a name="output_neuvector_url"></a> [neuvector\_url](#output\_neuvector\_url) | n/a |
 | <a name="output_rancher_url"></a> [rancher\_url](#output\_rancher\_url) | n/a |
 | <a name="output_worker_node_ip"></a> [worker\_node\_ip](#output\_worker\_node\_ip) | n/a |
