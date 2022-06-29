@@ -1,0 +1,12 @@
+frontend:
+  replicas: 3
+
+redis:
+  master:
+    replicas: 1
+  replica:
+    replicas: 2
+
+ingress:
+  enabled: False
+  host: guestbook.example.com

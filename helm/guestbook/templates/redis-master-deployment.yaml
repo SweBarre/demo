@@ -1,0 +1,27 @@
+apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-redis-master
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-redis
+      role: {{ .Release.Name }}-master
+      tier: {{ .Release.Name }}-backend
+  replicas: {{ .Values.redis.master.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-redis
+        role: {{ .Release.Name }}-master
+        tier: {{ .Release.Name }}-backend
+    spec:
+      containers:
+      - name: master
+        image: k8s.gcr.io/redis:e2e  # or just image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 6379

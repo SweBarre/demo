@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-redis-master
+  labels:
+    app: {{ .Release.Name }}-redis
+    role: {{ .Release.Name }}-master
+    tier: {{ .Release.Name }}-backend
+spec:
+  ports:
+  - port: 6379
+    targetPort: 6379
+  selector:
+    app: {{ .Release.Name }}-redis
+    role: {{ .Release.Name }}-master
+    tier: {{ .Release.Name }}-backend
