@@ -32,3 +32,13 @@ k3s:
   enabled: true
 EOF
 }
+
+resource "ssh_resource" "nv-svc-nodeport" {
+  depends_on = [rancher2_app_v2.neuvector]
+  host = aws_instance.rke2_master_instance[0].public_ip
+  user = local.node_username
+  private_key = tls_private_key.ssh_key.private_key_pem
+  commands = [
+    "sudo /var/lib/rancher/rke2/bin/kubectl --kubeconfig /etc/rancher/rke2/rke2.yaml -n cattle-neuvector-system get service neuvector-service-webui -o=jsonpath='{.spec.ports[0].nodePort}'"
+  ]
+}
