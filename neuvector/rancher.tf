@@ -19,3 +19,18 @@ resource "rancher2_cluster_sync" "rancher-cluster" {
   wait_catalogs = true
   state_confirm = 3
 }
+
+resource "rancher2_catalog_v2" "demo-apps" {
+  depends_on = [rancher2_cluster_sync.rancher-cluster]
+  cluster_id = rancher2_cluster.rancher-cluster.id
+  name = "demo-apps"
+  git_repo = "https://github.com/SweBarre/demo.git"
+  git_branch = "main"
+}
+
+resource "rancher2_cluster_sync" "demo-repo-sync" {
+  depends_on = [rancher2_catalog_v2.demo-apps]
+  cluster_id = rancher2_cluster.rancher-cluster.id
+  wait_catalogs = true
+  state_confirm = 1
+}

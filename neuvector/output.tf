@@ -22,3 +22,7 @@ output "neuvector_url" {
     instance.tags.Name => "https://${instance.public_ip}:${ssh_resource.nv-svc-nodeport.result}"
   }
 }
+
+output "guestbook_url" {
+  value = "http://guestbook.${aws_instance.rke2_master_instance[0].public_ip}.sslip.io"
+}
