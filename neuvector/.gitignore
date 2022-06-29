@@ -1,6 +1,9 @@
 # tls files
 id_ed25519*
 
+# temp files
+*.swp
+
 # Local .terraform directories
 **/.terraform/*
 

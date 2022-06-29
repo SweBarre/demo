@@ -52,8 +52,11 @@ No modules.
 | [local_file.ssh_public_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/file) | resource |
 | [local_sensitive_file.ssh_private_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
 | [local_sensitive_file.ssh_private_key_pem](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
+| [rancher2_app_v2.guestbook](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/app_v2) | resource |
 | [rancher2_app_v2.neuvector](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/app_v2) | resource |
+| [rancher2_catalog_v2.demo-apps](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/catalog_v2) | resource |
 | [rancher2_cluster.rancher-cluster](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/cluster) | resource |
+| [rancher2_cluster_sync.demo-repo-sync](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/cluster_sync) | resource |
 | [rancher2_cluster_sync.rancher-cluster](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/cluster_sync) | resource |
 | [ssh_resource.install_rke2_first_master](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.install_rke2_master](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
@@ -77,6 +80,7 @@ No modules.
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | AWS Region to deploy to | `string` | `"eu-north-1"` | no |
 | <a name="input_aws_secret_key"></a> [aws\_secret\_key](#input\_aws\_secret\_key) | AWS Secret key | `string` | n/a | yes |
 | <a name="input_aws_worker_instance_type"></a> [aws\_worker\_instance\_type](#input\_aws\_worker\_instance\_type) | Type of EC2 Instance to use | `string` | `"t3.xlarge"` | no |
+| <a name="input_install_guestbook"></a> [install\_guestbook](#input\_install\_guestbook) | Install guestbook demo app into default namespace | `bool` | `false` | no |
 | <a name="input_neuvector_admin_password"></a> [neuvector\_admin\_password](#input\_neuvector\_admin\_password) | The password for the default admin user login | `string` | n/a | yes |
 | <a name="input_neuvector_chart_version"></a> [neuvector\_chart\_version](#input\_neuvector\_chart\_version) | version of NeuVector chart to install | `string` | `"100.0.0+up2.2.0"` | no |
 | <a name="input_neuvector_controller_replicas"></a> [neuvector\_controller\_replicas](#input\_neuvector\_controller\_replicas) | Number of NeuVector controllers to deploy | `number` | `1` | no |
@@ -94,6 +98,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_guestbook_url"></a> [guestbook\_url](#output\_guestbook\_url) | n/a |
 | <a name="output_master_node_ip"></a> [master\_node\_ip](#output\_master\_node\_ip) | n/a |
 | <a name="output_neuvector_url"></a> [neuvector\_url](#output\_neuvector\_url) | n/a |
 | <a name="output_rancher_url"></a> [rancher\_url](#output\_rancher\_url) | n/a |

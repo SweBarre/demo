@@ -94,6 +94,12 @@ variable "neuvector_scanners_replicas" {
   default = 1
 }
 
+variable "install_guestbook" {
+  type = bool
+  description = "Install guestbook demo app into default namespace"
+  default = false
+}
+
 locals {
   node_username = "ec2-user"
 }
