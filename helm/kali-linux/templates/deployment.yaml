@@ -1,0 +1,24 @@
+apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-kali
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-kali
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-kali
+    spec:
+      containers:
+      - name: kali
+        image: kalilinux/kali-last-release
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "apt-get update && apt-get install -y hping3; while true; do sleep 30; done;" ]
+

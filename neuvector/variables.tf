@@ -100,6 +100,13 @@ variable "install_guestbook" {
   default = false
 }
 
+variable "install_kali" {
+  type = bool
+  description = "Install kali-linux instance into default namespace"
+  default = false
+}
+
+
 locals {
   node_username = "ec2-user"
 }
