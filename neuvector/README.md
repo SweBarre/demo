@@ -101,9 +101,9 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_guestbook_url"></a> [guestbook\_url](#output\_guestbook\_url) | n/a |
-| <a name="output_master_node_ip"></a> [master\_node\_ip](#output\_master\_node\_ip) | n/a |
-| <a name="output_neuvector_url"></a> [neuvector\_url](#output\_neuvector\_url) | n/a |
-| <a name="output_rancher_url"></a> [rancher\_url](#output\_rancher\_url) | n/a |
-| <a name="output_set_kubeconfig"></a> [set\_kubeconfig](#output\_set\_kubeconfig) | n/a |
-| <a name="output_worker_node_ip"></a> [worker\_node\_ip](#output\_worker\_node\_ip) | n/a |
+| <a name="output_guestbook_url"></a> [guestbook\_url](#output\_guestbook\_url) | URL to Guestbook demo app if `var.install_guestbook`is set to `true` |
+| <a name="output_master_node_ip"></a> [master\_node\_ip](#output\_master\_node\_ip) | List of IP-addresses for the master nodes |
+| <a name="output_neuvector_url"></a> [neuvector\_url](#output\_neuvector\_url) | URL to access NeuVector on master node 0 IP and NodePort |
+| <a name="output_rancher_url"></a> [rancher\_url](#output\_rancher\_url) | The URL to the RMS as set in `var.rancher_api_url` |
+| <a name="output_set_kubeconfig"></a> [set\_kubeconfig](#output\_set\_kubeconfig) | Prints out `export KUBECONFIG=$(pwd)/kubeconf`for easy copy/paste access |
+| <a name="output_worker_node_ip"></a> [worker\_node\_ip](#output\_worker\_node\_ip) | List of IP-addresses for the worker nodes |
