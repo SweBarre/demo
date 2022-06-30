@@ -26,3 +26,7 @@ output "neuvector_url" {
 output "guestbook_url" {
   value = var.install_guestbook  ? "http://guestbook.${aws_instance.rke2_master_instance[0].public_ip}.sslip.io" : null
 }
+
+output "set_kubeconfig" {
+  value = "export KUBECONFIG=$(pwd)/kubeconf"
+}

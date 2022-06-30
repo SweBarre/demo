@@ -1,5 +1,6 @@
-# tls files
+# sensitive files
 id_ed25519*
+kubeconf
 
 # temp files
 *.swp
