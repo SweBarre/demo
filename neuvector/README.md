@@ -1,6 +1,7 @@
 # NeuVector Demo environment
 
 This will create an RKE2 cluster running on EC2 with an wide open security group and local created id\_ed25519 ssh keys and register the cluster as a down stream cluster on a specified rancher management server (default https://demo-hosted.rancher.cloud/)
+It will also create a kubeconf in the directory pointing to the first rke2 master node
 
 ## Getting started
 
@@ -50,6 +51,7 @@ No modules.
 | [aws_key_pair.nvdemo_key_pair](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/resources/key_pair) | resource |
 | [aws_security_group.nvdemo_sg_allowall](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/resources/security_group) | resource |
 | [local_file.ssh_public_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/file) | resource |
+| [local_sensitive_file.local_kubeconf](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
 | [local_sensitive_file.ssh_private_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
 | [local_sensitive_file.ssh_private_key_pem](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
 | [rancher2_app_v2.guestbook](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/app_v2) | resource |
@@ -64,6 +66,7 @@ No modules.
 | [ssh_resource.nv-svc-nodeport](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.register_rke](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.rke2_first_master_config](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
+| [ssh_resource.rke2_kubeconf](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.rke2_master_config](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.rke2_master_config_dir](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.rke2_worker_config](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
@@ -102,4 +105,5 @@ No modules.
 | <a name="output_master_node_ip"></a> [master\_node\_ip](#output\_master\_node\_ip) | n/a |
 | <a name="output_neuvector_url"></a> [neuvector\_url](#output\_neuvector\_url) | n/a |
 | <a name="output_rancher_url"></a> [rancher\_url](#output\_rancher\_url) | n/a |
+| <a name="output_set_kubeconfig"></a> [set\_kubeconfig](#output\_set\_kubeconfig) | n/a |
 | <a name="output_worker_node_ip"></a> [worker\_node\_ip](#output\_worker\_node\_ip) | n/a |

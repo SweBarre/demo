@@ -115,3 +115,19 @@ resource "ssh_resource" "install_rke2_worker" {
     "sudo systemctl enable rke2-agent --now"
   ]
 }
+
+resource "ssh_resource" "rke2_kubeconf" {
+  depends_on = [ssh_resource.install_rke2_first_master]
+  host = aws_instance.rke2_master_instance[0].public_ip
+  user = local.node_username
+  private_key = tls_private_key.ssh_key.private_key_pem
+  commands = [
+    "sudo cat /etc/rancher/rke2/rke2.yaml | awk '{gsub(/127.0.0.1/,\"${aws_instance.rke2_master_instance[0].public_ip}\");}1'"
+  ]
+}
+
+resource "local_sensitive_file" "local_kubeconf" {
+  filename = "${path.module}/kubeconf"
+  content = ssh_resource.rke2_kubeconf.result
+  file_permission = "0600"
+}
