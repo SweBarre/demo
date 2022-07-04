@@ -19,6 +19,7 @@ There are six mandatory variables that needs to be congifured in the `terraform.
 
 ## Demo examples
 - [Mitigate the SACK Panic DDoS Attack](demos/SACK\_DDOS.md)
+- [Data Loss Prevention - VISA Credit card number](demos/DLP\_VISA\_CREDITCARD.md
 
 ## Requirements
 
