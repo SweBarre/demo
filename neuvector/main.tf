@@ -20,5 +20,5 @@
   *
   * ## Demo examples
   * - [Mitigate the SACK Panic DDoS Attack](demos/SACK_DDOS.md)
-  * - [Data Loss Prevention - VISA Credit card number](demos/DLP_VISA_CREDITCARD.md
+  * - [Data Loss Prevention - VISA Credit card number](demos/DLP_VISA_CREDITCARD.md)
   */
