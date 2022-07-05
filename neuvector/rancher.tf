@@ -16,7 +16,7 @@ resource "ssh_resource" "register_rke" {
 resource "rancher2_cluster_sync" "rancher-cluster" {
   depends_on = [ssh_resource.register_rke]
   cluster_id = rancher2_cluster.rancher-cluster.id
-  wait_catalogs = true
+  wait_catalogs = false
   state_confirm = 3
 }
 
@@ -28,8 +28,11 @@ resource "rancher2_catalog_v2" "demo-apps" {
   git_branch = "main"
 }
 
-resource "rancher2_cluster_sync" "demo-repo-sync" {
-  depends_on = [rancher2_catalog_v2.demo-apps]
+
+resource "rancher2_cluster_sync" "catalog-repo-sync" {
+  depends_on = [
+    rancher2_catalog_v2.demo-apps,
+  ]
   cluster_id = rancher2_cluster.rancher-cluster.id
   wait_catalogs = true
   state_confirm = 1

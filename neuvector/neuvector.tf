@@ -1,5 +1,5 @@
 resource "rancher2_app_v2" "neuvector" {
-  depends_on = [rancher2_cluster_sync.rancher-cluster]
+  depends_on = [rancher2_cluster_sync.catalog-repo-sync]
   cluster_id = rancher2_cluster.rancher-cluster.id
   name = "neuvector"
   namespace = "cattle-neuvector-system"
@@ -12,6 +12,8 @@ global:
     url: ${var.rancher_api_url}/
 controller:
   replicas: ${var.neuvector_controller_replicas}
+  apisvc:
+    type: ClusterIP
   ranchersso:
     enabled: true
   secret:
@@ -30,15 +32,16 @@ cve:
     replicas: ${var.neuvector_scanners_replicas}
 k3s:
   enabled: true
+manager:
+  ingress:
+    enabled: true
+    host: ${local.neuvector_hostname}
+    tls: true
+    annotations:
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 EOF
 }
 
-resource "ssh_resource" "nv-svc-nodeport" {
-  depends_on = [rancher2_app_v2.neuvector]
-  host = aws_instance.rke2_master_instance[0].public_ip
-  user = local.node_username
-  private_key = tls_private_key.ssh_key.private_key_pem
-  commands = [
-    "sudo /var/lib/rancher/rke2/bin/kubectl --kubeconfig /etc/rancher/rke2/rke2.yaml -n cattle-neuvector-system get service neuvector-service-webui -o=jsonpath='{.spec.ports[0].nodePort}'"
-  ]
+locals {
+  neuvector_hostname = join(".", ["neuvector", aws_instance.rke2_master_instance[0].public_ip, "sslip.io"])
 }

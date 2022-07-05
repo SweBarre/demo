@@ -1,6 +1,6 @@
 resource "rancher2_app_v2" "guestbook" {
   count = var.install_guestbook ? 1 : 0
-  depends_on = [rancher2_cluster_sync.demo-repo-sync]
+  depends_on = [rancher2_cluster_sync.catalog-repo-sync]
   cluster_id = rancher2_cluster.rancher-cluster.id
   name = "guestbook"
   namespace = "default"
@@ -15,7 +15,7 @@ EOF
 
 resource "rancher2_app_v2" "kali-linux" {
   count = var.install_kali ? 1 : 0
-  depends_on = [rancher2_cluster_sync.demo-repo-sync]
+  depends_on = [rancher2_cluster_sync.catalog-repo-sync]
   cluster_id = rancher2_cluster.rancher-cluster.id
   name = "kali"
   namespace = "default"

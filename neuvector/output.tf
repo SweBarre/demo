@@ -20,11 +20,8 @@ output "worker_node_ip" {
 }
 
 output "neuvector_url" {
-  description = "URL to access NeuVector on master node 0 IP and NodePort"
-  value = {
-    for instance in aws_instance.rke2_master_instance:
-    instance.tags.Name => "https://${instance.public_ip}:${ssh_resource.nv-svc-nodeport.result}"
-  }
+  description = "The URL to NeuVector GUI (login without rancher SSO"
+  value = "https://${local.neuvector_hostname}"
 }
 
 output "guestbook_url" {
