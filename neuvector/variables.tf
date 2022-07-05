@@ -106,7 +106,6 @@ variable "install_kali" {
   default = false
 }
 
-
 locals {
   node_username = "ec2-user"
 }
