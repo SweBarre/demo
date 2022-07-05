@@ -60,11 +60,6 @@ variable rke2_worker_node_count {
   default = 0
 }
 
-variable "rke2_cluster_token" {
-  type = string
-  description = "shared secret for rke control plane nodes"
-}
-
 variable "rke2_version" {
   type = string
   description = "rke2 Kubernetes version"

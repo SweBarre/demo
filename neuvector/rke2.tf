@@ -1,3 +1,8 @@
+resource "random_password" "cluster-token" {
+  length = 50
+  special = false
+}
+
 resource "ssh_resource" "rke2_master_config_dir" {
   count = var.rke2_master_node_count
   host = aws_instance.rke2_master_instance[count.index].public_ip
@@ -10,13 +15,16 @@ resource "ssh_resource" "rke2_master_config_dir" {
 }
 
 resource "ssh_resource" "rke2_first_master_config" {
-  depends_on = [ssh_resource.rke2_master_config_dir]
+  depends_on = [
+    ssh_resource.rke2_master_config_dir,
+    random_password.cluster-token
+    ]
   user = local.node_username
   host = aws_instance.rke2_master_instance[0].public_ip
   private_key = tls_private_key.ssh_key.private_key_pem
   file {
     content     = <<EOT
-token: ${var.rke2_cluster_token}
+token: ${random_password.cluster-token.result}
 tls-san:
   - ${aws_instance.rke2_master_instance[0].public_ip}
   - ${aws_instance.rke2_master_instance[0].private_ip}
@@ -30,14 +38,17 @@ EOT
 
 resource "ssh_resource" "rke2_master_config" {
   count = var.rke2_master_node_count - 1
-  depends_on = [ssh_resource.rke2_master_config_dir]
+  depends_on = [
+    ssh_resource.rke2_master_config_dir,
+    random_password.cluster-token
+  ]
   user = local.node_username
   host = aws_instance.rke2_master_instance[count.index+1].public_ip
   private_key = tls_private_key.ssh_key.private_key_pem
   file {
     content     = <<EOT
 server: https://${aws_instance.rke2_master_instance[0].private_ip}:9345
-token: ${var.rke2_cluster_token}
+token: ${random_password.cluster-token.result}
 tls-san:
   - ${aws_instance.rke2_master_instance[count.index+1].public_ip}
   - ${aws_instance.rke2_master_instance[count.index+1].private_ip}
@@ -62,14 +73,17 @@ resource "ssh_resource" "rke2_worker_config_dir" {
 
 resource "ssh_resource" "rke2_worker_config" {
   count = var.rke2_worker_node_count
-  depends_on = [ssh_resource.rke2_worker_config_dir]
+  depends_on = [
+    ssh_resource.rke2_worker_config_dir,
+    random_password.cluster-token
+  ]
   user = local.node_username
   host = aws_instance.rke2_worker_instance[count.index].public_ip
   private_key = tls_private_key.ssh_key.private_key_pem
   file {
     content     = <<EOT
 server: https://${aws_instance.rke2_master_instance[0].private_ip}:9345
-token: ${var.rke2_cluster_token}
+token: ${random_password.cluster-token.result}
 EOT
     destination = "/etc/rancher/rke2/config.yaml"
     permissions = "0644"
@@ -89,7 +103,6 @@ resource "ssh_resource" "install_rke2_first_master" {
   ]
 }
 
-
 resource "ssh_resource" "install_rke2_master" {
   depends_on = [ssh_resource.install_rke2_first_master, ssh_resource.rke2_master_config]
   count = var.rke2_master_node_count - 1
@@ -104,7 +117,11 @@ resource "ssh_resource" "install_rke2_master" {
 }
 
 resource "ssh_resource" "install_rke2_worker" {
-  depends_on = [ssh_resource.install_rke2_first_master, ssh_resource.install_rke2_master, ssh_resource.rke2_worker_config]
+  depends_on = [
+    ssh_resource.install_rke2_first_master,
+    ssh_resource.install_rke2_master,
+    ssh_resource.rke2_worker_config
+  ]
   count = var.rke2_worker_node_count
   host = aws_instance.rke2_worker_instance[count.index].public_ip
   user = local.node_username

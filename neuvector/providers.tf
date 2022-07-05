@@ -20,6 +20,10 @@ terraform {
       source  = "rancher/rancher2"
       version = "1.24.0"
     }
+    random = {
+      source = "hashicorp/random"
+      version = "3.3.2"
+    }
   }
   required_version = ">= 1.0.0"
 }
