@@ -109,9 +109,9 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_guestbook_url"></a> [guestbook\_url](#output\_guestbook\_url) | URL to Guestbook demo app if `var.install_guestbook`is set to `true` |
-| <a name="output_master_node_ssh"></a> [master\_node\_ssh](#output\_master\_node\_ssh) | List of IP-addresses for the master nodes |
-| <a name="output_neuvector_url"></a> [neuvector\_url](#output\_neuvector\_url) | The URL to NeuVector GUI (login without rancher SSO |
+| <a name="output_master_node_ssh"></a> [master\_node\_ssh](#output\_master\_node\_ssh) | SSH commands to login to master nodes |
+| <a name="output_neuvector_url"></a> [neuvector\_url](#output\_neuvector\_url) | The URL to NeuVector GUI (login without rancher SSO) |
 | <a name="output_rancher_url"></a> [rancher\_url](#output\_rancher\_url) | The URL to the RMS as set in `var.rancher_api_url` |
 | <a name="output_set_kubeconfig"></a> [set\_kubeconfig](#output\_set\_kubeconfig) | Prints out `export KUBECONFIG=$(pwd)/kubeconf`for easy copy/paste access |
-| <a name="output_worker_node_ssh"></a> [worker\_node\_ssh](#output\_worker\_node\_ssh) | List of IP-addresses for the worker nodes |
+| <a name="output_worker_node_ssh"></a> [worker\_node\_ssh](#output\_worker\_node\_ssh) | SSH commands to login to worker nodes |
 <!-- END_TF_DOCS -->
