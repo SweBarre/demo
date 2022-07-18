@@ -36,7 +36,7 @@ resource "aws_instance" "rke2_master_instance" {
   }
 
   provisioner "remote-exec" {
-    inline = ["sudo hostnamectl set-hostname ${var.prefix}-master-${count.index}"]
+    inline = ["sudo hostnamectl set-hostname ${format("%s-master-%02s", var.prefix, count.index + 1)}"]
   }
 
 
@@ -48,7 +48,7 @@ resource "aws_instance" "rke2_master_instance" {
     }
 
   tags = {
-    Name = "${var.prefix}-master-${count.index}"
+    Name = format("%s-master-%02s", var.prefix, count.index + 1)
   }
 }
 
@@ -66,7 +66,7 @@ resource "aws_instance" "rke2_worker_instance" {
   }
 
   provisioner "remote-exec" {
-    inline = ["sudo hostnamectl set-hostname ${var.prefix}-worker-${count.index}"]
+    inline = ["sudo hostnamectl set-hostname ${format("%s-worker-%02s", var.prefix, count.index + 1)}"]
   }
 
   connection {
@@ -77,7 +77,7 @@ resource "aws_instance" "rke2_worker_instance" {
     }
 
   tags = {
-    Name = "${var.prefix}-worker-${count.index}"
+    Name = format("%s-worker-%02s", var.prefix, count.index + 1)
   }
 }
 
