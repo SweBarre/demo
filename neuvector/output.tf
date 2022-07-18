@@ -3,19 +3,19 @@ output "rancher_url" {
   value = var.rancher_api_url
 }
 
-output "master_node_ip" {
+output "master_node_ssh" {
   description = "List of IP-addresses for the master nodes"
   value = {
     for instance in aws_instance.rke2_master_instance:
-     instance.tags.Name => instance.public_ip
+     instance.tags.Name => format("ssh -i %s %s@%s", local_sensitive_file.ssh_private_key_openssh.filename, local.node_username, instance.public_ip)
   }
 }
 
-output "worker_node_ip" {
+output "worker_node_ssh" {
   description = "List of IP-addresses for the worker nodes"
   value = {
     for instance in aws_instance.rke2_worker_instance:
-     instance.tags.Name => instance.public_ip
+     instance.tags.Name => format("ssh -i %s %s@%s", local_sensitive_file.ssh_private_key_openssh.filename, local.node_username, instance.public_ip)
   }
 }
 
