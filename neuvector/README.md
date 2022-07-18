@@ -1,3 +1,4 @@
+<!-- BEGIN_TF_DOCS -->
 # NeuVector Demo environment
 
 This will create an RKE2 cluster running on EC2 with an wide open security group and local created id\_ed25519 ssh keys and register the cluster as a down stream cluster on a specified rancher management server (default https://demo-hosted.rancher.cloud/)
@@ -108,8 +109,9 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_guestbook_url"></a> [guestbook\_url](#output\_guestbook\_url) | URL to Guestbook demo app if `var.install_guestbook`is set to `true` |
-| <a name="output_master_node_ip"></a> [master\_node\_ip](#output\_master\_node\_ip) | List of IP-addresses for the master nodes |
+| <a name="output_master_node_ssh"></a> [master\_node\_ssh](#output\_master\_node\_ssh) | List of IP-addresses for the master nodes |
 | <a name="output_neuvector_url"></a> [neuvector\_url](#output\_neuvector\_url) | The URL to NeuVector GUI (login without rancher SSO |
 | <a name="output_rancher_url"></a> [rancher\_url](#output\_rancher\_url) | The URL to the RMS as set in `var.rancher_api_url` |
 | <a name="output_set_kubeconfig"></a> [set\_kubeconfig](#output\_set\_kubeconfig) | Prints out `export KUBECONFIG=$(pwd)/kubeconf`for easy copy/paste access |
-| <a name="output_worker_node_ip"></a> [worker\_node\_ip](#output\_worker\_node\_ip) | List of IP-addresses for the worker nodes |
+| <a name="output_worker_node_ssh"></a> [worker\_node\_ssh](#output\_worker\_node\_ssh) | List of IP-addresses for the worker nodes |
+<!-- END_TF_DOCS -->
