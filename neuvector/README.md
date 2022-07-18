@@ -1,4 +1,3 @@
-<!-- BEGIN_TF_DOCS -->
 # NeuVector Demo environment
 
 This will create an RKE2 cluster running on EC2 with an wide open security group and local created id\_ed25519 ssh keys and register the cluster as a down stream cluster on a specified rancher management server (default https://demo-hosted.rancher.cloud/)
@@ -21,6 +20,8 @@ There are five mandatory variables that needs to be congifured in the `terraform
 - [Mitigate the SACK Panic DDoS Attack](demos/SACK\_DDOS.md)
 - [Data Loss Prevention - VISA Credit card number](demos/DLP\_VISA\_CREDITCARD.md)
 
+
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
