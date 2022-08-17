@@ -1,0 +1,21 @@
+
+# AWS Access key
+aws_access_key = ""
+
+# Type of EC2 Instance to use
+aws_master_instance_type = "t3.large"
+
+# AWS Region to deploy to
+aws_region = "eu-north-1"
+
+# AWS Secret key
+aws_secret_key = ""
+
+# Prefix added to all AWS resources (also used as cluster name)
+prefix = "rms-demo"
+
+# Number of master nodes in cluster
+rke2_master_node_count = 1
+
+# rke2 Kubernetes version
+rke2_version = "v1.22.10-rc2+rke2r1"
