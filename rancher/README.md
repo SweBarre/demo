@@ -1,6 +1,6 @@
 # Rancher Management Server Demo Environment
 
-iThis will create an RKE2 cluster running on EC2 with an wide open security group and local created id\_ed25519 ssh keys and then install Rancher Management Server
+This will create an RKE2 cluster running on EC2 with an wide open security group and local created id\_ed25519 ssh keys and then install Rancher Management Server
 It will also create a kubeconf in the directory pointing to the first rke2 master node
 
 ## Getting started
@@ -12,7 +12,7 @@ cd demo/rancher
 cp terraform.tfvars.example terraform.tfvars
 ```
 There are two mandatory variables that needs to be congifured in the terraform.tfvars file:
-- aws_access_key and aws_secret_key to access to your AWS account
+- `aws_access_key` and `aws_secret_key` to access to your AWS account
 
 
 <!-- BEGIN_TF_DOCS -->
