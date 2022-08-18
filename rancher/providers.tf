@@ -24,6 +24,10 @@ terraform {
       source = "hashicorp/random"
       version = "3.3.2"
     }
+    helm = {
+      source  = "hashicorp/helm"
+      version = "2.5.1"
+    }
   }
   required_version = ">= 1.0.0"
 }
