@@ -37,3 +37,17 @@ provider "aws" {
   secret_key = var.aws_secret_key
   region     = var.aws_region
 }
+
+provider "rancher2" {
+  alias = "bootstrap"
+
+  api_url   = "https://${local.rancher_hostname}"
+  insecure  = true
+  bootstrap = true
+}
+
+provider "helm" {
+  kubernetes {
+    config_path = local_sensitive_file.local_kubeconf.filename
+  }
+}

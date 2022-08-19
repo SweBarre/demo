@@ -40,6 +40,23 @@ variable "rke2_version" {
   default = "v1.22.10-rc2+rke2r1"
 }
 
+variable "cert_manager_version" {
+  type        = string
+  description = "Version of cert-manager to install"
+  default     = "1.7.1"
+}
+
+variable "rancher_version" {
+  type        = string
+  description = "Rancher version"
+  default     = "2.6.6"
+}
+
+variable "rancher_server_admin_password" {
+  type        = string
+  description = "Admin password for rancher management server"
+}
+
 locals {
   node_username = "ec2-user"
 }
