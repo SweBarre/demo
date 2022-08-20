@@ -1,6 +1,11 @@
 # temp files
 *.swp
 
+# ssh keys and kubeconf
+**/id_ed25519*
+**/kubeconf*
+
+
 # Local .terraform directories
 **/.terraform/*
 
