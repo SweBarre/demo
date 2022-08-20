@@ -1,0 +1,33 @@
+
+# AWS Access key
+aws_access_key = ""
+
+# Type of EC2 Instance to use
+aws_instance_type = "t3.micro"
+
+# AWS Region to deploy to
+aws_region = "eu-north-1"
+
+# AWS Secret key
+aws_secret_key = ""
+
+# Number of single node k3s clusters to deploy
+k3s_cluster_count = 3
+
+# k3s version to deploy
+k3s_version = "v1.22.10-rc2+rke2r1"
+
+# Prefix added to all AWS resources (also used as cluster name)
+prefix = "fleet-demo"
+
+# Access key to rancher management server
+rancher_access_key = ""
+
+# URL to where cluster should register
+rancher_api_url = "https://demo-hosted.rancher.cloud"
+
+# Allow insecure connection to Rancher. Mandatory if self signed tls and not ca_certs provided.
+rancher_insecure = false
+
+# Secret key to rancher management server
+rancher_secret_key = ""
