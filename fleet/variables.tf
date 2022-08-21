@@ -26,13 +26,6 @@ variable "aws_region" {
   default = "eu-north-1"
 }
 
-variable "k3s_cluster_count" {
-  type = number
-  description = "Number of single node k3s clusters to deploy"
-  default = 3
-}
-
-
 variable "k3s_version" {
   type = string
   description = "k3s version to deploy"
@@ -41,21 +34,24 @@ variable "k3s_version" {
 
 variable "k3s_cluster_labels" {
   type = list
-  description = "list of cluster labels each cluster should have, number must match `k3s_cluster_count`"
+  description = "list of cluster labels each cluster should have, lenght of list determin how many one node clusters deployed`"
   default = [
     {
       arch = "x86_64"
       location = "dc-1"
+      env = "prod"
+      dist = "k3s"
+    },
+    {
+      arch = "x86_64"
+      location = "dc-1"
+      env = "dev"
       dist = "k3s"
     },
     {
       arch = "x86_64"
       location = "dc-2"
-      dist = "k3s"
-    },
-    {
-      arch = "aarch64"
-      location = "dc-1"
+      env = "prod"
       dist = "k3s"
     }
   ]

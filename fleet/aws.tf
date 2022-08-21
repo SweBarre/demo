@@ -26,7 +26,7 @@ resource "aws_key_pair" "fleetdemo_key_pair" {
 resource "aws_instance" "k3s_instance" {
   ami = data.aws_ami.hostos.id
   instance_type = var.aws_instance_type
-  count = var.k3s_cluster_count
+  count = length(var.k3s_cluster_labels)
 
   key_name = aws_key_pair.fleetdemo_key_pair.key_name
   vpc_security_group_ids = [aws_security_group.fleetdemo_sg_allowall.id]

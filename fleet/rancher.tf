@@ -1,5 +1,5 @@
 resource "rancher2_cluster" "k3s-cluster" {
-  count = var.k3s_cluster_count
+  count = length(var.k3s_cluster_labels)
   name = format("%s-%02s", var.prefix, count.index +1)
   description = "k3s imported fleet-demo cluster"
   labels = var.k3s_cluster_labels[count.index]
@@ -7,7 +7,7 @@ resource "rancher2_cluster" "k3s-cluster" {
 
 
 resource "ssh_resource" "register_k3s" {
-  count = var.k3s_cluster_count
+  count = length(var.k3s_cluster_labels)
   depends_on = [rancher2_cluster.k3s-cluster, ssh_resource.install_k3s]
   host = aws_instance.k3s_instance[count.index].public_ip
   user = local.node_username
@@ -19,7 +19,7 @@ resource "ssh_resource" "register_k3s" {
 
 resource "rancher2_cluster_sync" "k3s-cluster" {
   depends_on = [ssh_resource.register_k3s]
-  count = var.k3s_cluster_count
+  count = length(var.k3s_cluster_labels)
   cluster_id = rancher2_cluster.k3s-cluster[count.index].id
   wait_catalogs = true
   state_confirm = 2

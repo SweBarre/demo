@@ -1,5 +1,5 @@
 resource "ssh_resource" "install_k3s" {
-  count = var.k3s_cluster_count
+  count = length(var.k3s_cluster_labels)
   host = aws_instance.k3s_instance[count.index].public_ip
   user = local.node_username
   private_key = tls_private_key.ssh_key.private_key_pem
@@ -11,7 +11,7 @@ resource "ssh_resource" "install_k3s" {
 
 resource "ssh_resource" "k3s_kubeconf" {
   depends_on = [ssh_resource.install_k3s]
-  count = var.k3s_cluster_count
+  count = length(var.k3s_cluster_labels)
   host = aws_instance.k3s_instance[count.index].public_ip
   user = local.node_username
   private_key = tls_private_key.ssh_key.private_key_pem
@@ -21,7 +21,7 @@ resource "ssh_resource" "k3s_kubeconf" {
 }
 
 resource "local_sensitive_file" "local_kubeconf" {
-  count = var.k3s_cluster_count
+  count = length(var.k3s_cluster_labels)
   filename = format("%s/kubeconf_%02s", path.module, count.index +1)
   content = ssh_resource.k3s_kubeconf[count.index].result
   file_permission = "0600"
