@@ -23,3 +23,8 @@ data "aws_ami" "hostos" {
     values = ["ebs"]
   }
 }
+
+data "rancher2_cluster" "local" {
+  name = "local"
+}
+

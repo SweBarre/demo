@@ -20,6 +20,10 @@ terraform {
       source  = "rancher/rancher2"
       version = "1.24.0"
     }
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+      version = "2.13.0"
+    }
   }
   required_version = ">= 1.0.0"
 }
@@ -37,3 +41,9 @@ provider "rancher2" {
   secret_key = var.rancher_secret_key
   insecure = var.rancher_insecure
 }
+
+provider "kubernetes" {
+  host = yamldecode(data.rancher2_cluster.local.kubeconfig).clusters[0].cluster.server
+  insecure = var.rancher_insecure
+}
+
