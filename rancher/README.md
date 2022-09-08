@@ -82,7 +82,7 @@ No modules.
 | <a name="input_cert_manager_version"></a> [cert\_manager\_version](#input\_cert\_manager\_version) | Version of cert-manager to install | `string` | `"1.7.1"` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix added to all AWS resources (also used as cluster name) | `string` | `"rms-demo"` | no |
 | <a name="input_rancher_server_admin_password"></a> [rancher\_server\_admin\_password](#input\_rancher\_server\_admin\_password) | Admin password for rancher management server | `string` | n/a | yes |
-| <a name="input_rancher_version"></a> [rancher\_version](#input\_rancher\_version) | Rancher version | `string` | `"2.6.6"` | no |
+| <a name="input_rancher_version"></a> [rancher\_version](#input\_rancher\_version) | Rancher version | `string` | `"2.6.8"` | no |
 | <a name="input_rke2_master_node_count"></a> [rke2\_master\_node\_count](#input\_rke2\_master\_node\_count) | Number of master nodes in cluster | `number` | `1` | no |
 | <a name="input_rke2_version"></a> [rke2\_version](#input\_rke2\_version) | rke2 Kubernetes version | `string` | `"v1.22.10-rc2+rke2r1"` | no |
 
@@ -90,6 +90,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_admin_access_key"></a> [admin\_access\_key](#output\_admin\_access\_key) | API Access Key for admin user |
+| <a name="output_admin_access_secret"></a> [admin\_access\_secret](#output\_admin\_access\_secret) | API Access Secret for admin user |
 | <a name="output_rancher_url"></a> [rancher\_url](#output\_rancher\_url) | The URL to the Rancher UI |
 | <a name="output_set_kubeconfig"></a> [set\_kubeconfig](#output\_set\_kubeconfig) | Prints out `export KUBECONFIG=$(pwd)/kubeconf`for easy copy/paste access |
 <!-- END_TF_DOCS -->
