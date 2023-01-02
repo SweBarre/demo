@@ -5,7 +5,7 @@ data "aws_ami" "hostos" {
 
   filter {
     name   = "name"
-    values = ["suse-sles-15-sp3*"]
+    values = ["suse-sles-15-sp4*"]
   }
 
   filter {

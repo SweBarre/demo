@@ -96,7 +96,7 @@ No modules.
 | <a name="input_install_guestbook"></a> [install\_guestbook](#input\_install\_guestbook) | Install guestbook demo app into default namespace | `bool` | `false` | no |
 | <a name="input_install_kali"></a> [install\_kali](#input\_install\_kali) | Install kali-linux instance into default namespace | `bool` | `false` | no |
 | <a name="input_neuvector_admin_password"></a> [neuvector\_admin\_password](#input\_neuvector\_admin\_password) | The password for the default admin user login | `string` | n/a | yes |
-| <a name="input_neuvector_chart_version"></a> [neuvector\_chart\_version](#input\_neuvector\_chart\_version) | version of NeuVector chart to install | `string` | `"100.0.0+up2.2.0"` | no |
+| <a name="input_neuvector_chart_version"></a> [neuvector\_chart\_version](#input\_neuvector\_chart\_version) | version of NeuVector chart to install | `string` | `"100.0.2+up2.2.3"` | no |
 | <a name="input_neuvector_controller_replicas"></a> [neuvector\_controller\_replicas](#input\_neuvector\_controller\_replicas) | Number of NeuVector controllers to deploy | `number` | `1` | no |
 | <a name="input_neuvector_scanners_replicas"></a> [neuvector\_scanners\_replicas](#input\_neuvector\_scanners\_replicas) | Number of NeuVector scanners to deploy | `number` | `1` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix added to all AWS resources (also used as cluster name) | `string` | `"nv-demo"` | no |
@@ -104,7 +104,7 @@ No modules.
 | <a name="input_rancher_api_url"></a> [rancher\_api\_url](#input\_rancher\_api\_url) | URL to where cluster should register | `string` | `"https://demo-hosted.rancher.cloud"` | no |
 | <a name="input_rancher_secret_key"></a> [rancher\_secret\_key](#input\_rancher\_secret\_key) | Secret key to rancher management server | `string` | n/a | yes |
 | <a name="input_rke2_master_node_count"></a> [rke2\_master\_node\_count](#input\_rke2\_master\_node\_count) | Number of master nodes in cluster | `number` | `1` | no |
-| <a name="input_rke2_version"></a> [rke2\_version](#input\_rke2\_version) | rke2 Kubernetes version | `string` | `"v1.22.10-rc2+rke2r1"` | no |
+| <a name="input_rke2_version"></a> [rke2\_version](#input\_rke2\_version) | rke2 Kubernetes version | `string` | `"v1.24.9+rke2r1"` | no |
 | <a name="input_rke2_worker_node_count"></a> [rke2\_worker\_node\_count](#input\_rke2\_worker\_node\_count) | Number of worker nodes in cluster | `number` | `0` | no |
 
 ## Outputs
