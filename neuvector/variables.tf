@@ -63,7 +63,7 @@ variable rke2_worker_node_count {
 variable "rke2_version" {
   type = string
   description = "rke2 Kubernetes version"
-  default = "v1.22.10-rc2+rke2r1"
+  default = "v1.24.9+rke2r1"
 }
 
 variable "neuvector_admin_password" {

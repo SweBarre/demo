@@ -104,7 +104,7 @@ No modules.
 | <a name="input_rancher_api_url"></a> [rancher\_api\_url](#input\_rancher\_api\_url) | URL to where cluster should register | `string` | `"https://demo-hosted.rancher.cloud"` | no |
 | <a name="input_rancher_secret_key"></a> [rancher\_secret\_key](#input\_rancher\_secret\_key) | Secret key to rancher management server | `string` | n/a | yes |
 | <a name="input_rke2_master_node_count"></a> [rke2\_master\_node\_count](#input\_rke2\_master\_node\_count) | Number of master nodes in cluster | `number` | `1` | no |
-| <a name="input_rke2_version"></a> [rke2\_version](#input\_rke2\_version) | rke2 Kubernetes version | `string` | `"v1.22.10-rc2+rke2r1"` | no |
+| <a name="input_rke2_version"></a> [rke2\_version](#input\_rke2\_version) | rke2 Kubernetes version | `string` | `"v1.24.9+rke2r1"` | no |
 | <a name="input_rke2_worker_node_count"></a> [rke2\_worker\_node\_count](#input\_rke2\_worker\_node\_count) | Number of worker nodes in cluster | `number` | `0` | no |
 
 ## Outputs
