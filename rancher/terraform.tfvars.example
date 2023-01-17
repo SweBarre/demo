@@ -21,7 +21,7 @@ prefix = "rms-demo"
 rancher_server_admin_password = ""
 
 # Rancher version
-rancher_version = "2.6.8"
+rancher_version = "2.7.0"
 
 # Number of master nodes in cluster
 rke2_master_node_count = 1
