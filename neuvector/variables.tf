@@ -38,6 +38,12 @@ variable "rancher_api_url" {
   default = "https://demo-hosted.rancher.cloud"
 }
 
+variable "rancher_api_insecure" {
+  type = bool
+  description = "The Rancher API is using a self signed certificate"
+  default = false
+}
+
 variable "rancher_access_key" {
   type = string
   description = "Access key to rancher management server"

@@ -31,7 +31,7 @@ There are five mandatory variables that needs to be congifured in the `terraform
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | 4.17.0 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | 2.2.3 |
-| <a name="requirement_rancher2"></a> [rancher2](#requirement\_rancher2) | 1.24.0 |
+| <a name="requirement_rancher2"></a> [rancher2](#requirement\_rancher2) | 1.25.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | 3.3.2 |
 | <a name="requirement_ssh"></a> [ssh](#requirement\_ssh) | 1.2.0 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | 3.4.0 |
@@ -42,7 +42,7 @@ There are five mandatory variables that needs to be congifured in the `terraform
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 4.17.0 |
 | <a name="provider_local"></a> [local](#provider\_local) | 2.2.3 |
-| <a name="provider_rancher2"></a> [rancher2](#provider\_rancher2) | 1.24.0 |
+| <a name="provider_rancher2"></a> [rancher2](#provider\_rancher2) | 1.25.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.3.2 |
 | <a name="provider_ssh"></a> [ssh](#provider\_ssh) | 1.2.0 |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | 3.4.0 |
@@ -63,13 +63,13 @@ No modules.
 | [local_sensitive_file.local_kubeconf](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
 | [local_sensitive_file.ssh_private_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
 | [local_sensitive_file.ssh_private_key_pem](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
-| [rancher2_app_v2.guestbook](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/app_v2) | resource |
-| [rancher2_app_v2.kali-linux](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/app_v2) | resource |
-| [rancher2_app_v2.neuvector](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/app_v2) | resource |
-| [rancher2_catalog_v2.demo-apps](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/catalog_v2) | resource |
-| [rancher2_cluster.rancher-cluster](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/cluster) | resource |
-| [rancher2_cluster_sync.catalog-repo-sync](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/cluster_sync) | resource |
-| [rancher2_cluster_sync.rancher-cluster](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/cluster_sync) | resource |
+| [rancher2_app_v2.guestbook](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/app_v2) | resource |
+| [rancher2_app_v2.kali-linux](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/app_v2) | resource |
+| [rancher2_app_v2.neuvector](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/app_v2) | resource |
+| [rancher2_catalog_v2.demo-apps](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/catalog_v2) | resource |
+| [rancher2_cluster.rancher-cluster](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/cluster) | resource |
+| [rancher2_cluster_sync.catalog-repo-sync](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/cluster_sync) | resource |
+| [rancher2_cluster_sync.rancher-cluster](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/cluster_sync) | resource |
 | [random_password.cluster-token](https://registry.terraform.io/providers/hashicorp/random/3.3.2/docs/resources/password) | resource |
 | [ssh_resource.install_rke2_first_master](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.install_rke2_master](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
@@ -101,6 +101,7 @@ No modules.
 | <a name="input_neuvector_scanners_replicas"></a> [neuvector\_scanners\_replicas](#input\_neuvector\_scanners\_replicas) | Number of NeuVector scanners to deploy | `number` | `1` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix added to all AWS resources (also used as cluster name) | `string` | `"nv-demo"` | no |
 | <a name="input_rancher_access_key"></a> [rancher\_access\_key](#input\_rancher\_access\_key) | Access key to rancher management server | `string` | n/a | yes |
+| <a name="input_rancher_api_insecure"></a> [rancher\_api\_insecure](#input\_rancher\_api\_insecure) | The Rancher API is using a self signed certificate | `bool` | `false` | no |
 | <a name="input_rancher_api_url"></a> [rancher\_api\_url](#input\_rancher\_api\_url) | URL to where cluster should register | `string` | `"https://demo-hosted.rancher.cloud"` | no |
 | <a name="input_rancher_secret_key"></a> [rancher\_secret\_key](#input\_rancher\_secret\_key) | Secret key to rancher management server | `string` | n/a | yes |
 | <a name="input_rke2_master_node_count"></a> [rke2\_master\_node\_count](#input\_rke2\_master\_node\_count) | Number of master nodes in cluster | `number` | `1` | no |

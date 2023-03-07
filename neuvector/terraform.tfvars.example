@@ -38,6 +38,9 @@ prefix = "nv-demo"
 # Access key to rancher management server
 rancher_access_key = ""
 
+# The Rancher API is using a self signed certificate
+rancher_api_insecure = false
+
 # URL to where cluster should register
 rancher_api_url = "https://demo-hosted.rancher.cloud"
 
