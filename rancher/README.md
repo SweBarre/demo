@@ -25,7 +25,7 @@ There are three mandatory variables that needs to be congifured in the terraform
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | 4.17.0 |
 | <a name="requirement_helm"></a> [helm](#requirement\_helm) | 2.5.1 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | 2.2.3 |
-| <a name="requirement_rancher2"></a> [rancher2](#requirement\_rancher2) | 1.24.0 |
+| <a name="requirement_rancher2"></a> [rancher2](#requirement\_rancher2) | 1.25.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | 3.3.2 |
 | <a name="requirement_ssh"></a> [ssh](#requirement\_ssh) | 1.2.0 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | 3.4.0 |
@@ -37,7 +37,7 @@ There are three mandatory variables that needs to be congifured in the terraform
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 4.17.0 |
 | <a name="provider_helm"></a> [helm](#provider\_helm) | 2.5.1 |
 | <a name="provider_local"></a> [local](#provider\_local) | 2.2.3 |
-| <a name="provider_rancher2.bootstrap"></a> [rancher2.bootstrap](#provider\_rancher2.bootstrap) | 1.24.0 |
+| <a name="provider_rancher2.bootstrap"></a> [rancher2.bootstrap](#provider\_rancher2.bootstrap) | 1.25.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.3.2 |
 | <a name="provider_ssh"></a> [ssh](#provider\_ssh) | 1.2.0 |
 | <a name="provider_tls"></a> [tls](#provider\_tls) | 3.4.0 |
@@ -60,7 +60,7 @@ No modules.
 | [local_sensitive_file.local_kubeconf](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
 | [local_sensitive_file.ssh_private_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
 | [local_sensitive_file.ssh_private_key_pem](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
-| [rancher2_bootstrap.admin](https://registry.terraform.io/providers/rancher/rancher2/1.24.0/docs/resources/bootstrap) | resource |
+| [rancher2_bootstrap.admin](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/bootstrap) | resource |
 | [random_password.cluster-token](https://registry.terraform.io/providers/hashicorp/random/3.3.2/docs/resources/password) | resource |
 | [ssh_resource.install_rke2_first_master](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.install_rke2_master](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
