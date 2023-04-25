@@ -1,0 +1,11 @@
+variant: fcos
+version: 1.0.0
+passwd:
+  users:
+    - name: root
+# openssl passwd -6
+      password_hash: "$6$V0Bvkkf0EkhnSha7$i2zha2LNsw0AiDCnCXcQ9.hQYBwd1toi8yCB0WzNuVwOx3VUrHkBIK32L5a7Vaf7o93YUpJV6adNDMlklTYM2/"
+systemd:
+  units:
+    - name: cockpit.socket
+      enabled: true
