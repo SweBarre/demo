@@ -80,7 +80,7 @@ function create_vm(){
     fi
     echo "* Creating ignition/combultion ISO"
     butane --pretty --strict --output ${DISK_PATH}/ignition/config.ign ${DISK_PATH}/ignition/${VM_NAME}.fcc
-    mkisofs -o ${ISO_PATH}/${VM_NAME}.iso -V ${DISK_LABEL} ${DISK_PATH}
+    mkisofs -full-iso9660-filenames -o ${ISO_PATH}/${VM_NAME}.iso -V ${DISK_LABEL} ${DISK_PATH}
     echo "* Copy ALP image"
     cp ${IMG_PATH} ${VM_PATH}/${VM_NAME}.qcow2
     echo "* Creating VM"
