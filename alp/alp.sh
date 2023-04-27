@@ -35,7 +35,7 @@ ALP_COMPLETE_SINGLE_PARAM="\
   --start-vm
   --stop-vm
   --connect-vnc
-  --bash-complete
+  --bash-completion
   --clean-up"
 
 ALP_COMPLETE_TWO_PARAM="\
