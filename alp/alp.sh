@@ -206,6 +206,11 @@ while [[ $# -gt 0 ]]; do
             CLEAN_UP="true"
             shift
             ;;
+        --disk-label)
+            DISK_LABEL="$2"
+            shift
+            shift
+            ;;
         -b|--bash-completion)
             bash_completion
             exit
