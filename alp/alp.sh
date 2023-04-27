@@ -79,7 +79,12 @@ function create_vm(){
         exit 1
     fi
     echo "* Creating ignition/combultion ISO"
-    butane --pretty --strict --output ${DISK_PATH}/ignition/config.ign ${DISK_PATH}/ignition/${VM_NAME}.fcc
+    if [[ -f ${DISK_PATH}/ignition/${VM_NAME}.fcc ]]; then
+        butane --pretty --strict --output ${DISK_PATH}/ignition/config.ign ${DISK_PATH}/ignition/${VM_NAME}.fcc
+    fi
+    if [[ -f ${DISK_PATH}/combustion/${VM_NAME} ]];then
+        cp ${DISK_PATH}/combustion/${VM_NAME} ${DISK_PATH}/combustion/script
+    fi
     mkisofs -full-iso9660-filenames -o ${ISO_PATH}/${VM_NAME}.iso -V ${DISK_LABEL} ${DISK_PATH}
     echo "* Copy ALP image"
     cp ${IMG_PATH} ${VM_PATH}/${VM_NAME}.qcow2
@@ -105,6 +110,8 @@ function clean_up(){
     virsh undefine $VM_NAME
     rm ${VM_PATH}/${VM_NAME}.qcow2
     rm ${ISO_PATH}/${VM_NAME}.iso
+    rm ${DISK_PATH}/combustion/script
+    rm ${DISK_PATH}/ignition/config.ign
     echo "Clean up complete"
     exit 0
 }
