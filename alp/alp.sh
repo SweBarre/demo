@@ -4,6 +4,23 @@ set -aeou pipefail
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
+VCPU="${VCPU:-2}"
+MEMORY="${MEMORY:-4096}"
+VM_PATH="${VM_PATH:-${SCRIPTDIR}/VMs}"
+ISO_PATH="${ISO_PATH:-${SCRIPTDIR}/iso}"
+IMG_PATH="${IMG_PATH:-${SCRIPTDIR}/img/ALP-Micro.x86_64-0.1-Default-qcow-Build3.5.qcow2}"
+VM_NAME="${VM_NAME:-alp}"
+VM_DISK_SIZE="${VM_DISK_SIZE:-20}"
+NETWORK_NAME="${NETWORK_NAME:-default}"
+CREATE_VM="${CREATE_VM:-false}"
+START_VM="${START_VM:-false}"
+STOP_VM="${STOP_VM:-false}"
+CONNECT_VNC="${CONNECT_VNC:-false}"
+QEMU="${QEMU:-qemu:///system}"
+DISK_PATH="${DISK_PATH:-${SCRIPTDIR}/disk}"
+DISK_LABEL="${DISK_LABEL:-ignition}"
+CLEAN_UP="${CLEAN_UP:-false}"
+
 function printHelp(){
     cat << EOF
 Usage ${0##*/} [options..]
@@ -13,6 +30,7 @@ Usage ${0##*/} [options..]
 -v, --vcpu              Number of vCPUs
 -m, --memory            Memory in MM
 -V, --vm-path           Path to store VM disks
+-D, --vm-disk-size      Size of VM disk in GB
 -i, --img-path          Path to alp images
 -I, --iso-path          Path to ignition/combultion ISO
 -c, --create-vm         create a VM
@@ -40,6 +58,7 @@ ALP_COMPLETE_SINGLE_PARAM="\
 
 ALP_COMPLETE_TWO_PARAM="\
   --vm-name
+  --vm-disk-size
   --network
   --vcpu
   --memory
@@ -87,7 +106,9 @@ function create_vm(){
     fi
     mkisofs -full-iso9660-filenames -o ${ISO_PATH}/${VM_NAME}.iso -V ${DISK_LABEL} ${DISK_PATH}
     echo "* Copy ALP image"
-    cp ${IMG_PATH} ${VM_PATH}/${VM_NAME}.qcow2
+    #cp ${IMG_PATH} ${VM_PATH}/${VM_NAME}.qcow2
+    qemu-img create -f qcow2 -o preallocation=metadata ${VM_PATH}/${VM_NAME}.qcow2 ${VM_DISK_SIZE}G
+    virt-resize --expand /dev/sda4 ${IMG_PATH} ${VM_PATH}/${VM_NAME}.qcow2
     echo "* Creating VM"
     virt-install --name ${VM_NAME} \
         --vcpus ${VCPU} \
@@ -136,22 +157,6 @@ function stop_vm(){
 # Main Script
 #
 
-VCPU="${VCPU:-2}"
-MEMORY="${MEMORY:-4096}"
-VM_PATH="${VM_PATH:-${SCRIPTDIR}/VMs}"
-ISO_PATH="${ISO_PATH:-${SCRIPTDIR}/iso}"
-IMG_PATH="${IMG_PATH:-${SCRIPTDIR}/img/ALP-Micro.x86_64-0.1-Default-qcow-Build3.5.qcow2}"
-VM_NAME="${VM_NAME:-alp}"
-NETWORK_NAME="${NETWORK_NAME:-default}"
-CREATE_VM="${CREATE_VM:-false}"
-START_VM="${START_VM:-false}"
-STOP_VM="${STOP_VM:-false}"
-CONNECT_VNC="${CONNECT_VNC:-false}"
-QEMU="${QEMU:-qemu:///system}"
-DISK_PATH="${DISK_PATH:-${SCRIPTDIR}/disk}"
-DISK_LABEL="${DISK_LABEL:-ignition}"
-CLEAN_UP="${CLEAN_UP:-false}"
-
 while [[ $# -gt 0 ]]; do
     case $1 in
         -h|-\?|--help)
@@ -165,6 +170,11 @@ while [[ $# -gt 0 ]]; do
             ;;
         -n|--vm-name)
             VM_NAME="$2"
+            shift
+            shift
+            ;;
+        -D|--vm-disk-size)
+            VM_DISK_SIZE="$2"
             shift
             shift
             ;;
