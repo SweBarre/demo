@@ -74,7 +74,7 @@ variable "rke2_version" {
 
 variable "neuvector_admin_password" {
   type = string
-  description = "The password for the default admin user login"
+  description = "The password for the default admin user login. Eight(8) characters or more, atleast 1 lowercase, 1 uppercase and 1 number"
 }
 
 variable "neuvector_chart_version" {
