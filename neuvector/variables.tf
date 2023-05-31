@@ -80,7 +80,7 @@ variable "neuvector_admin_password" {
 variable "neuvector_chart_version" {
   type = string
   description = "version of NeuVector chart to install"
-  default = "100.0.2+up2.2.3"
+  default = "102.0.0+up2.4.2"
 }
 
 variable "neuvector_controller_replicas" {
