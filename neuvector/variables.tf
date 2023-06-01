@@ -107,6 +107,12 @@ variable "install_kali" {
   default = false
 }
 
+variable "install_orders" {
+  type = bool
+  description = "Install orders app for struts RCE demo"
+  default = false
+}
+
 locals {
   node_username = "ec2-user"
 }

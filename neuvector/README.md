@@ -66,6 +66,7 @@ No modules.
 | [rancher2_app_v2.guestbook](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/app_v2) | resource |
 | [rancher2_app_v2.kali-linux](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/app_v2) | resource |
 | [rancher2_app_v2.neuvector](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/app_v2) | resource |
+| [rancher2_app_v2.orders](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/app_v2) | resource |
 | [rancher2_catalog_v2.demo-apps](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/catalog_v2) | resource |
 | [rancher2_cluster.rancher-cluster](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/cluster) | resource |
 | [rancher2_cluster_sync.catalog-repo-sync](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/cluster_sync) | resource |
@@ -95,6 +96,7 @@ No modules.
 | <a name="input_aws_worker_instance_type"></a> [aws\_worker\_instance\_type](#input\_aws\_worker\_instance\_type) | Type of EC2 Instance to use | `string` | `"t3.xlarge"` | no |
 | <a name="input_install_guestbook"></a> [install\_guestbook](#input\_install\_guestbook) | Install guestbook demo app into default namespace | `bool` | `false` | no |
 | <a name="input_install_kali"></a> [install\_kali](#input\_install\_kali) | Install kali-linux instance into default namespace | `bool` | `false` | no |
+| <a name="input_install_orders"></a> [install\_orders](#input\_install\_orders) | Install orders app for struts RCE demo | `bool` | `false` | no |
 | <a name="input_neuvector_admin_password"></a> [neuvector\_admin\_password](#input\_neuvector\_admin\_password) | The password for the default admin user login. Eight(8) characters or more, atleast 1 lowercase, 1 uppercase and 1 number | `string` | n/a | yes |
 | <a name="input_neuvector_chart_version"></a> [neuvector\_chart\_version](#input\_neuvector\_chart\_version) | version of NeuVector chart to install | `string` | `"102.0.0+up2.4.2"` | no |
 | <a name="input_neuvector_controller_replicas"></a> [neuvector\_controller\_replicas](#input\_neuvector\_controller\_replicas) | Number of NeuVector controllers to deploy | `number` | `1` | no |

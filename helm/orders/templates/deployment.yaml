@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-orders
+  labels:
+    app: {{ .Release.Name }}-orders
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-orders
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-orders
+    spec:
+      containers:
+      - name: struts
+        image: skywalke34/struts:latest
+        ports:
+        - containerPort: 8080

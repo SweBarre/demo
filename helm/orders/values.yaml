@@ -1,0 +1,3 @@
+ingress:
+  enabled: False
+  host: super-store.example.com

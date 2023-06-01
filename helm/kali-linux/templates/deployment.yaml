@@ -20,5 +20,17 @@ spec:
             cpu: 100m
             memory: 100Mi
         command: [ "/bin/bash", "-c", "--" ]
-        args: [ "apt-get update && apt-get install -y hping3; while true; do sleep 30; done;" ]
+        args: [ "apt-get update && apt-get install -y hping3 python3 python3-requests netcat-traditional; while true; do sleep 30; done;" ]
+        volumeMounts:
+          - name: payloads
+            mountPath: /payloads
+      volumes:
+      - name: payloads
+        configMap:
+          name: {{ .Release.Name }}-payloads
+          items:
+          - key: struts-pwn2.py
+            path: struts-pwn2.py
+          - key: struts1.py
+            path: struts1.py
 

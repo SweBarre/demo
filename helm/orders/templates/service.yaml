@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-orders
+spec:
+  type: ClusterIP
+  selector:
+    app: {{ .Release.Name }}-orders
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      name: struts-8080-tcp
