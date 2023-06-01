@@ -1,5 +1,5 @@
 apiVersion: v2
-name: super-store
+name: orders
 description: Webshop used for struts RCE demo
 
 # A chart can be either an 'application' or a 'library' chart.
