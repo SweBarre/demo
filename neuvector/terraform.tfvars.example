@@ -20,6 +20,9 @@ install_guestbook = false
 # Install kali-linux instance into default namespace
 install_kali = false
 
+# Install orders app for struts RCE demo
+install_orders = false
+
 # The password for the default admin user login. Eight(8) characters or more, atleast 1 lowercase, 1 uppercase and 1 number
 neuvector_admin_password = ""
 

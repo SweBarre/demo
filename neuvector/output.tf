@@ -29,6 +29,12 @@ output "guestbook_url" {
   value = var.install_guestbook  ? "http://guestbook.${aws_instance.rke2_master_instance[0].public_ip}.sslip.io" : null
 }
 
+
+output "orders_url" {
+  description = "URL to orders demo app if `var.install_guestbook`is set to `true`"
+  value = var.install_orders  ? "http://orders.${aws_instance.rke2_master_instance[0].public_ip}.sslip.io/super-app/" : null
+}
+
 output "set_kubeconfig" {
   description = "Prints out `export KUBECONFIG=$(pwd)/kubeconf`for easy copy/paste access"
   value = "export KUBECONFIG=$(pwd)/kubeconf"
