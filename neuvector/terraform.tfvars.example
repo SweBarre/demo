@@ -3,6 +3,9 @@
 aws_access_key = ""
 
 # Type of EC2 Instance to use
+aws_client_instance_type = "t3.nano"
+
+# Type of EC2 Instance to use
 aws_master_instance_type = "t3.xlarge"
 
 # AWS Region to deploy to
@@ -20,7 +23,7 @@ install_guestbook = false
 # Install kali-linux instance into default namespace
 install_kali = false
 
-# Install orders app for struts RCE demo
+# Install orders app for struts RCE demo, it also spins up a client VM to do the attacks from
 install_orders = false
 
 # The password for the default admin user login. Eight(8) characters or more, atleast 1 lowercase, 1 uppercase and 1 number
