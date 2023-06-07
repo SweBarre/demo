@@ -55,6 +55,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [aws_instance.client_instance](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/resources/instance) | resource |
 | [aws_instance.rke2_master_instance](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/resources/instance) | resource |
 | [aws_instance.rke2_worker_instance](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/resources/instance) | resource |
 | [aws_key_pair.nvdemo_key_pair](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/resources/key_pair) | resource |
@@ -83,6 +84,7 @@ No modules.
 | [ssh_resource.rke2_worker_config](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [ssh_resource.rke2_worker_config_dir](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
 | [tls_private_key.ssh_key](https://registry.terraform.io/providers/hashicorp/tls/3.4.0/docs/resources/private_key) | resource |
+| [aws_ami.clientos](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/data-sources/ami) | data source |
 | [aws_ami.hostos](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/data-sources/ami) | data source |
 
 ## Inputs
@@ -90,13 +92,14 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_aws_access_key"></a> [aws\_access\_key](#input\_aws\_access\_key) | AWS Access key | `string` | n/a | yes |
+| <a name="input_aws_client_instance_type"></a> [aws\_client\_instance\_type](#input\_aws\_client\_instance\_type) | Type of EC2 Instance to use | `string` | `"t3.nano"` | no |
 | <a name="input_aws_master_instance_type"></a> [aws\_master\_instance\_type](#input\_aws\_master\_instance\_type) | Type of EC2 Instance to use | `string` | `"t3.xlarge"` | no |
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | AWS Region to deploy to | `string` | `"eu-north-1"` | no |
 | <a name="input_aws_secret_key"></a> [aws\_secret\_key](#input\_aws\_secret\_key) | AWS Secret key | `string` | n/a | yes |
 | <a name="input_aws_worker_instance_type"></a> [aws\_worker\_instance\_type](#input\_aws\_worker\_instance\_type) | Type of EC2 Instance to use | `string` | `"t3.xlarge"` | no |
 | <a name="input_install_guestbook"></a> [install\_guestbook](#input\_install\_guestbook) | Install guestbook demo app into default namespace | `bool` | `false` | no |
 | <a name="input_install_kali"></a> [install\_kali](#input\_install\_kali) | Install kali-linux instance into default namespace | `bool` | `false` | no |
-| <a name="input_install_orders"></a> [install\_orders](#input\_install\_orders) | Install orders app for struts RCE demo | `bool` | `false` | no |
+| <a name="input_install_orders"></a> [install\_orders](#input\_install\_orders) | Install orders app for struts RCE demo, it also spins up a client VM to do the attacks from | `bool` | `false` | no |
 | <a name="input_neuvector_admin_password"></a> [neuvector\_admin\_password](#input\_neuvector\_admin\_password) | The password for the default admin user login. Eight(8) characters or more, atleast 1 lowercase, 1 uppercase and 1 number | `string` | n/a | yes |
 | <a name="input_neuvector_chart_version"></a> [neuvector\_chart\_version](#input\_neuvector\_chart\_version) | version of NeuVector chart to install | `string` | `"102.0.0+up2.4.2"` | no |
 | <a name="input_neuvector_controller_replicas"></a> [neuvector\_controller\_replicas](#input\_neuvector\_controller\_replicas) | Number of NeuVector controllers to deploy | `number` | `1` | no |
@@ -114,9 +117,11 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_client_node_ssh"></a> [client\_node\_ssh](#output\_client\_node\_ssh) | SSH Command to login to client node |
 | <a name="output_guestbook_url"></a> [guestbook\_url](#output\_guestbook\_url) | URL to Guestbook demo app if `var.install_guestbook`is set to `true` |
 | <a name="output_master_node_ssh"></a> [master\_node\_ssh](#output\_master\_node\_ssh) | SSH commands to login to master nodes |
 | <a name="output_neuvector_url"></a> [neuvector\_url](#output\_neuvector\_url) | The URL to NeuVector GUI (login without rancher SSO) |
+| <a name="output_orders_url"></a> [orders\_url](#output\_orders\_url) | URL to orders demo app if `var.install_orders` is set to `true` |
 | <a name="output_rancher_url"></a> [rancher\_url](#output\_rancher\_url) | The URL to the RMS as set in `var.rancher_api_url` |
 | <a name="output_set_kubeconfig"></a> [set\_kubeconfig](#output\_set\_kubeconfig) | Prints out `export KUBECONFIG=$(pwd)/kubeconf`for easy copy/paste access |
 | <a name="output_worker_node_ssh"></a> [worker\_node\_ssh](#output\_worker\_node\_ssh) | SSH commands to login to worker nodes |

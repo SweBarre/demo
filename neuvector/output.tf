@@ -31,11 +31,16 @@ output "guestbook_url" {
 
 
 output "orders_url" {
-  description = "URL to orders demo app if `var.install_guestbook`is set to `true`"
+  description = "URL to orders demo app if `var.install_orders` is set to `true`"
   value = var.install_orders  ? "http://orders.${aws_instance.rke2_master_instance[0].public_ip}.sslip.io/super-app/" : null
 }
 
 output "set_kubeconfig" {
   description = "Prints out `export KUBECONFIG=$(pwd)/kubeconf`for easy copy/paste access"
   value = "export KUBECONFIG=$(pwd)/kubeconf"
+}
+
+output "client_node_ssh" {
+  description = "SSH Command to login to client node"
+  value = var.install_orders ? format("ssh -i %s %s@%s", local_sensitive_file.ssh_private_key_openssh.filename, local.node_username, aws_instance.client_instance[0].public_ip) : null
 }

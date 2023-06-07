@@ -109,9 +109,16 @@ variable "install_kali" {
 
 variable "install_orders" {
   type = bool
-  description = "Install orders app for struts RCE demo"
+  description = "Install orders app for struts RCE demo, it also spins up a client VM to do the attacks from"
   default = false
 }
+
+variable "aws_client_instance_type" {
+  type = string
+  description = "Type of EC2 Instance to use"
+  default = "t3.nano"
+}
+
 
 locals {
   node_username = "ec2-user"
