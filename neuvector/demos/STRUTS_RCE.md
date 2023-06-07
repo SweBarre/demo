@@ -5,12 +5,7 @@ This demo creates a remote shell using the Apache Struts CVE-2017-9805 Exploit
 ## Prep
 make sure you have the following two variables set in  your `terraform.tfvars`.
 ```
-<<<<<<< HEAD
 install_orders     = true
-=======
-install_kali = true
-install_order     = true
->>>>>>> main
 ```
 
 The run
