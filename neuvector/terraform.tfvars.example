@@ -30,7 +30,7 @@ install_orders = false
 neuvector_admin_password = ""
 
 # version of NeuVector chart to install
-neuvector_chart_version = "102.0.0+up2.4.2"
+neuvector_chart_version = "102.0.3+up2.6.0"
 
 # Number of NeuVector controllers to deploy
 neuvector_controller_replicas = 1
@@ -57,7 +57,7 @@ rancher_secret_key = ""
 rke2_master_node_count = 1
 
 # rke2 Kubernetes version
-rke2_version = "v1.24.9+rke2r1"
+rke2_version = "v1.26.8+rke2r1"
 
 # Number of worker nodes in cluster
 rke2_worker_node_count = 0
