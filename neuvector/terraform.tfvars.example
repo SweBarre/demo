@@ -35,6 +35,9 @@ neuvector_chart_version = "102.0.3+up2.6.0"
 # Number of NeuVector controllers to deploy
 neuvector_controller_replicas = 1
 
+# If installing on k8s < 1.25 set thit to true to enable psp functionallity
+neuvector_enable_psp = false
+
 # Number of NeuVector scanners to deploy
 neuvector_scanners_replicas = 1
 
