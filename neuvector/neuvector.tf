@@ -11,7 +11,7 @@ global:
   cattle:
     url: ${var.rancher_api_url}/
     psp:
-      enabled: false
+      enabled: ${var.neuvector_enable_psp}
 controller:
   replicas: ${var.neuvector_controller_replicas}
   apisvc:

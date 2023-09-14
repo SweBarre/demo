@@ -103,6 +103,7 @@ No modules.
 | <a name="input_neuvector_admin_password"></a> [neuvector\_admin\_password](#input\_neuvector\_admin\_password) | The password for the default admin user login. Eight(8) characters or more, atleast 1 lowercase, 1 uppercase and 1 number | `string` | n/a | yes |
 | <a name="input_neuvector_chart_version"></a> [neuvector\_chart\_version](#input\_neuvector\_chart\_version) | version of NeuVector chart to install | `string` | `"102.0.3+up2.6.0"` | no |
 | <a name="input_neuvector_controller_replicas"></a> [neuvector\_controller\_replicas](#input\_neuvector\_controller\_replicas) | Number of NeuVector controllers to deploy | `number` | `1` | no |
+| <a name="input_neuvector_enable_psp"></a> [neuvector\_enable\_psp](#input\_neuvector\_enable\_psp) | If installing on k8s < 1.25 set thit to true to enable psp functionallity | `bool` | `false` | no |
 | <a name="input_neuvector_scanners_replicas"></a> [neuvector\_scanners\_replicas](#input\_neuvector\_scanners\_replicas) | Number of NeuVector scanners to deploy | `number` | `1` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix added to all AWS resources (also used as cluster name) | `string` | `"nv-demo"` | no |
 | <a name="input_rancher_access_key"></a> [rancher\_access\_key](#input\_rancher\_access\_key) | Access key to rancher management server | `string` | n/a | yes |

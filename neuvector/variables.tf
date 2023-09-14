@@ -123,3 +123,9 @@ variable "aws_client_instance_type" {
 locals {
   node_username = "ec2-user"
 }
+
+variable "neuvector_enable_psp" {
+    type = bool
+    description = "If installing on k8s < 1.25 set thit to true to enable psp functionallity"
+    default = false
+}
