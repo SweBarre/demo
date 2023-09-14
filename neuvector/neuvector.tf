@@ -10,6 +10,8 @@ resource "rancher2_app_v2" "neuvector" {
 global:
   cattle:
     url: ${var.rancher_api_url}/
+    psp:
+      enabled: false
 controller:
   replicas: ${var.neuvector_controller_replicas}
   apisvc:
