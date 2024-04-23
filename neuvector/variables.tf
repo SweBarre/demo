@@ -129,3 +129,15 @@ variable "neuvector_enable_psp" {
     description = "If installing on k8s < 1.25 set thit to true to enable psp functionallity"
     default = false
 }
+
+variable "demoapp_helm_git_repo" {
+  type = string
+  description = "Git repository where the demo applications are located"
+  default = "https://github.com/SweBarre/demo.git"
+}
+
+variable "demoapp_helm_git_branch" {
+  type = string
+  description = "Git branch name for the demo applications"
+  default = "main"
+}

@@ -25,8 +25,8 @@ resource "rancher2_catalog_v2" "demo-apps" {
   depends_on = [rancher2_cluster_sync.rancher-cluster]
   cluster_id = rancher2_cluster.rancher-cluster.id
   name = "demo-apps"
-  git_repo = "https://github.com/SweBarre/demo.git"
-  git_branch = "main"
+  git_repo = var.demoapp_helm_git_repo
+  git_branch = var.demoapp_helm_git_branch
 }
 
 
