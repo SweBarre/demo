@@ -17,6 +17,12 @@ aws_secret_key = ""
 # Type of EC2 Instance to use
 aws_worker_instance_type = "t3.xlarge"
 
+# Git branch name for the demo applications
+demoapp_helm_git_branch = "main"
+
+# Git repository where the demo applications are located
+demoapp_helm_git_repo = "https://github.com/SweBarre/demo.git"
+
 # Install guestbook demo app into default namespace
 install_guestbook = false
 

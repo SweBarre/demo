@@ -29,23 +29,23 @@ There are five mandatory variables that needs to be congifured in the `terraform
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 4.17.0 |
-| <a name="requirement_local"></a> [local](#requirement\_local) | 2.2.3 |
-| <a name="requirement_rancher2"></a> [rancher2](#requirement\_rancher2) | 1.25.0 |
-| <a name="requirement_random"></a> [random](#requirement\_random) | 3.3.2 |
-| <a name="requirement_ssh"></a> [ssh](#requirement\_ssh) | 1.2.0 |
-| <a name="requirement_tls"></a> [tls](#requirement\_tls) | 3.4.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.20.1 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | 2.4.0 |
+| <a name="requirement_rancher2"></a> [rancher2](#requirement\_rancher2) | 3.1.1 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | 3.5.1 |
+| <a name="requirement_ssh"></a> [ssh](#requirement\_ssh) | 2.6.0 |
+| <a name="requirement_tls"></a> [tls](#requirement\_tls) | 4.0.4 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.17.0 |
-| <a name="provider_local"></a> [local](#provider\_local) | 2.2.3 |
-| <a name="provider_rancher2"></a> [rancher2](#provider\_rancher2) | 1.25.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.3.2 |
-| <a name="provider_ssh"></a> [ssh](#provider\_ssh) | 1.2.0 |
-| <a name="provider_tls"></a> [tls](#provider\_tls) | 3.4.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.20.1 |
+| <a name="provider_local"></a> [local](#provider\_local) | 2.4.0 |
+| <a name="provider_rancher2"></a> [rancher2](#provider\_rancher2) | 3.1.1 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.5.1 |
+| <a name="provider_ssh"></a> [ssh](#provider\_ssh) | 2.6.0 |
+| <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.4 |
 
 ## Modules
 
@@ -55,37 +55,37 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_instance.client_instance](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/resources/instance) | resource |
-| [aws_instance.rke2_master_instance](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/resources/instance) | resource |
-| [aws_instance.rke2_worker_instance](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/resources/instance) | resource |
-| [aws_key_pair.nvdemo_key_pair](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/resources/key_pair) | resource |
-| [aws_security_group.nvdemo_sg_allowall](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/resources/security_group) | resource |
-| [local_file.ssh_public_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/file) | resource |
-| [local_sensitive_file.local_kubeconf](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
-| [local_sensitive_file.ssh_private_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
-| [local_sensitive_file.ssh_private_key_pem](https://registry.terraform.io/providers/hashicorp/local/2.2.3/docs/resources/sensitive_file) | resource |
-| [rancher2_app_v2.guestbook](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/app_v2) | resource |
-| [rancher2_app_v2.kali-linux](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/app_v2) | resource |
-| [rancher2_app_v2.neuvector](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/app_v2) | resource |
-| [rancher2_app_v2.orders](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/app_v2) | resource |
-| [rancher2_catalog_v2.demo-apps](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/catalog_v2) | resource |
-| [rancher2_cluster.rancher-cluster](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/cluster) | resource |
-| [rancher2_cluster_sync.catalog-repo-sync](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/cluster_sync) | resource |
-| [rancher2_cluster_sync.rancher-cluster](https://registry.terraform.io/providers/rancher/rancher2/1.25.0/docs/resources/cluster_sync) | resource |
-| [random_password.cluster-token](https://registry.terraform.io/providers/hashicorp/random/3.3.2/docs/resources/password) | resource |
-| [ssh_resource.install_rke2_first_master](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
-| [ssh_resource.install_rke2_master](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
-| [ssh_resource.install_rke2_worker](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
-| [ssh_resource.register_rke](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
-| [ssh_resource.rke2_first_master_config](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
-| [ssh_resource.rke2_kubeconf](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
-| [ssh_resource.rke2_master_config](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
-| [ssh_resource.rke2_master_config_dir](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
-| [ssh_resource.rke2_worker_config](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
-| [ssh_resource.rke2_worker_config_dir](https://registry.terraform.io/providers/loafoe/ssh/1.2.0/docs/resources/resource) | resource |
-| [tls_private_key.ssh_key](https://registry.terraform.io/providers/hashicorp/tls/3.4.0/docs/resources/private_key) | resource |
-| [aws_ami.clientos](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/data-sources/ami) | data source |
-| [aws_ami.hostos](https://registry.terraform.io/providers/hashicorp/aws/4.17.0/docs/data-sources/ami) | data source |
+| [aws_instance.client_instance](https://registry.terraform.io/providers/hashicorp/aws/5.20.1/docs/resources/instance) | resource |
+| [aws_instance.rke2_master_instance](https://registry.terraform.io/providers/hashicorp/aws/5.20.1/docs/resources/instance) | resource |
+| [aws_instance.rke2_worker_instance](https://registry.terraform.io/providers/hashicorp/aws/5.20.1/docs/resources/instance) | resource |
+| [aws_key_pair.nvdemo_key_pair](https://registry.terraform.io/providers/hashicorp/aws/5.20.1/docs/resources/key_pair) | resource |
+| [aws_security_group.nvdemo_sg_allowall](https://registry.terraform.io/providers/hashicorp/aws/5.20.1/docs/resources/security_group) | resource |
+| [local_file.ssh_public_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.4.0/docs/resources/file) | resource |
+| [local_sensitive_file.local_kubeconf](https://registry.terraform.io/providers/hashicorp/local/2.4.0/docs/resources/sensitive_file) | resource |
+| [local_sensitive_file.ssh_private_key_openssh](https://registry.terraform.io/providers/hashicorp/local/2.4.0/docs/resources/sensitive_file) | resource |
+| [local_sensitive_file.ssh_private_key_pem](https://registry.terraform.io/providers/hashicorp/local/2.4.0/docs/resources/sensitive_file) | resource |
+| [rancher2_app_v2.guestbook](https://registry.terraform.io/providers/rancher/rancher2/3.1.1/docs/resources/app_v2) | resource |
+| [rancher2_app_v2.kali-linux](https://registry.terraform.io/providers/rancher/rancher2/3.1.1/docs/resources/app_v2) | resource |
+| [rancher2_app_v2.neuvector](https://registry.terraform.io/providers/rancher/rancher2/3.1.1/docs/resources/app_v2) | resource |
+| [rancher2_app_v2.orders](https://registry.terraform.io/providers/rancher/rancher2/3.1.1/docs/resources/app_v2) | resource |
+| [rancher2_catalog_v2.demo-apps](https://registry.terraform.io/providers/rancher/rancher2/3.1.1/docs/resources/catalog_v2) | resource |
+| [rancher2_cluster.rancher-cluster](https://registry.terraform.io/providers/rancher/rancher2/3.1.1/docs/resources/cluster) | resource |
+| [rancher2_cluster_sync.catalog-repo-sync](https://registry.terraform.io/providers/rancher/rancher2/3.1.1/docs/resources/cluster_sync) | resource |
+| [rancher2_cluster_sync.rancher-cluster](https://registry.terraform.io/providers/rancher/rancher2/3.1.1/docs/resources/cluster_sync) | resource |
+| [random_password.cluster-token](https://registry.terraform.io/providers/hashicorp/random/3.5.1/docs/resources/password) | resource |
+| [ssh_resource.install_rke2_first_master](https://registry.terraform.io/providers/loafoe/ssh/2.6.0/docs/resources/resource) | resource |
+| [ssh_resource.install_rke2_master](https://registry.terraform.io/providers/loafoe/ssh/2.6.0/docs/resources/resource) | resource |
+| [ssh_resource.install_rke2_worker](https://registry.terraform.io/providers/loafoe/ssh/2.6.0/docs/resources/resource) | resource |
+| [ssh_resource.register_rke](https://registry.terraform.io/providers/loafoe/ssh/2.6.0/docs/resources/resource) | resource |
+| [ssh_resource.rke2_first_master_config](https://registry.terraform.io/providers/loafoe/ssh/2.6.0/docs/resources/resource) | resource |
+| [ssh_resource.rke2_kubeconf](https://registry.terraform.io/providers/loafoe/ssh/2.6.0/docs/resources/resource) | resource |
+| [ssh_resource.rke2_master_config](https://registry.terraform.io/providers/loafoe/ssh/2.6.0/docs/resources/resource) | resource |
+| [ssh_resource.rke2_master_config_dir](https://registry.terraform.io/providers/loafoe/ssh/2.6.0/docs/resources/resource) | resource |
+| [ssh_resource.rke2_worker_config](https://registry.terraform.io/providers/loafoe/ssh/2.6.0/docs/resources/resource) | resource |
+| [ssh_resource.rke2_worker_config_dir](https://registry.terraform.io/providers/loafoe/ssh/2.6.0/docs/resources/resource) | resource |
+| [tls_private_key.ssh_key](https://registry.terraform.io/providers/hashicorp/tls/4.0.4/docs/resources/private_key) | resource |
+| [aws_ami.clientos](https://registry.terraform.io/providers/hashicorp/aws/5.20.1/docs/data-sources/ami) | data source |
+| [aws_ami.hostos](https://registry.terraform.io/providers/hashicorp/aws/5.20.1/docs/data-sources/ami) | data source |
 
 ## Inputs
 
@@ -97,6 +97,8 @@ No modules.
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | AWS Region to deploy to | `string` | `"eu-north-1"` | no |
 | <a name="input_aws_secret_key"></a> [aws\_secret\_key](#input\_aws\_secret\_key) | AWS Secret key | `string` | n/a | yes |
 | <a name="input_aws_worker_instance_type"></a> [aws\_worker\_instance\_type](#input\_aws\_worker\_instance\_type) | Type of EC2 Instance to use | `string` | `"t3.xlarge"` | no |
+| <a name="input_demoapp_helm_git_branch"></a> [demoapp\_helm\_git\_branch](#input\_demoapp\_helm\_git\_branch) | Git branch name for the demo applications | `string` | `"main"` | no |
+| <a name="input_demoapp_helm_git_repo"></a> [demoapp\_helm\_git\_repo](#input\_demoapp\_helm\_git\_repo) | Git repository where the demo applications are located | `string` | `"https://github.com/SweBarre/demo.git"` | no |
 | <a name="input_install_guestbook"></a> [install\_guestbook](#input\_install\_guestbook) | Install guestbook demo app into default namespace | `bool` | `false` | no |
 | <a name="input_install_kali"></a> [install\_kali](#input\_install\_kali) | Install kali-linux instance into default namespace | `bool` | `false` | no |
 | <a name="input_install_orders"></a> [install\_orders](#input\_install\_orders) | Install orders app for struts RCE demo, it also spins up a client VM to do the attacks from | `bool` | `false` | no |
